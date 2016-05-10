@@ -3,16 +3,20 @@
     "variables": {
         "name": "My name"
     },
-    "proxy": {
-        "server": "http://127.0.0.1:3000"
-    },
     "routes": [
         "/user/:user_id",
         "/user/:userid/profile",
         "/user/:userid/inbox/:messageid"
     ],
-    "servers":{
-        "3001":"3001_dir",
-        "4001":"4001_dir"
-    }
+    "servers": [{
+        "name": "服务器1",
+        "port": 3001,
+        "path": "3001_dir",
+        "realServer": "http://127.0.0.1:3000"
+    }, {
+        "name": "服务器2",
+        "port": 4001,
+        "path": "4001_dir",
+        "realServer": "http://192.168.100.230:8030"
+    }]
 }
